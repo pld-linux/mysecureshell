@@ -50,5 +50,3 @@ rm -rf $RPM_BUILD_ROOT
 /etc/ssh/sftp_config
 /etc/logrotate.d/*
 /bin/MySecureShell
-%dir /usr/lib/debug/usr/bin
-/usr/lib/debug/usr/bin/*
