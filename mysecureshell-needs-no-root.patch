@@ -1,0 +1,11 @@
+--- mysecureshell_1.20.a/install.sh.in	2010-05-07 13:42:08.000000000 +0200
++++ mysecureshell_1.20.b/install.sh.in	2010-05-07 13:41:52.000000000 +0200
+@@ -85,7 +85,7 @@
+ 	MyGetLocale 'Warning root ask'
+ 	echo "###################################################################"
+ 	echo ""
+-	exit 1
++	#exit 1
+ fi
+ 
+ ## Functions
