@@ -1,4 +1,5 @@
-#
+# TODO
+# - pldize logrotate (archivedir etc)
 Summary:	MySecureShell is a shell which adds more features to sftp-server
 Name:		mysecureshell
 Version:	1.20
@@ -13,8 +14,8 @@ Requires:	openssh-server
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-MySecureShell is a shell which will help add more features to sftp-server 
-which will bring major FTP servers like proftpd.
+MySecureShell is a shell which will help add more features to
+sftp-server which will bring major FTP servers like proftpd.
 
 Possibilities of MySecureShell :
 - Control bandwidth.
@@ -28,14 +29,11 @@ Possibilities of MySecureShell :
 %patch0 -p1
 
 %build
-
-%configure 
-
+%configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
      DESTDIR=$RPM_BUILD_ROOT
 
@@ -44,9 +42,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README* LICENSE  
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man8/*
-/etc/ssh/sftp_config
-/etc/logrotate.d/*
-/bin/MySecureShell
+%doc README-en
+%doc %lang(fr) README-fr
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/ssh/sftp_config
+%config(noreplace) %verify(not md5 mtime size) /etc/logrotate.d/mysecureshell
+%attr(755,root,root) /bin/MySecureShell
+%attr(755,root,root) %{_bindir}/sftp-*
+%{_mandir}/man8/MySecureShell.8*
+%{_mandir}/man8/sftp-*.8*
