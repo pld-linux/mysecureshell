@@ -45,7 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README-en
 %doc %lang(fr) README-fr
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/ssh/sftp_config
-%config(noreplace) %verify(not md5 mtime size) /etc/logrotate.d/mysecureshell
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/logrotate.d/mysecureshell
 %attr(755,root,root) /bin/MySecureShell
 %attr(755,root,root) %{_bindir}/sftp-*
 %{_mandir}/man8/MySecureShell.8*
