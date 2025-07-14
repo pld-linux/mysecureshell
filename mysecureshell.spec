@@ -26,7 +26,7 @@ Possibilities of MySecureShell :
 
 %prep
 %setup -q -n %{name}_%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %configure
